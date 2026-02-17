@@ -2,8 +2,6 @@
 let cartTotal = 0;
 let productsData = [];
 
-console.log("DEBUG: API Key interna", "sk_test_51MzQ2..."); 
-
 document.addEventListener('DOMContentLoaded', () => {
     fetchProducts();
     
@@ -48,7 +46,8 @@ function renderProducts(products) {
 
 // Función global para el onclick inline
 window.addToCart = (price) => {
-    
+    price = Number(price);
+
     console.log(`Agregando ${price} al carrito...`);
 
     cartTotal = cartTotal + price; 
@@ -63,9 +62,11 @@ window.addToCart = (price) => {
 };
 
 function filterProducts(e) {
-    const term = e.target.value;
+    const term = e.target.value.toLowerCase();
 
-    const filtered = productsData.filter(p => p.name.includes(term));
+    const filtered = productsData.filter(p =>
+        p.name.toLowerCase().includes(term)
+    );
     
     renderProducts(filtered);
 }
@@ -82,7 +83,7 @@ async function processCheckout() {
         
         if (!res.ok) {
             const errData = await res.json(); 
-            throw new Error(errData.code || "Error desconocido");
+            throw new Error(errData.error || "Error desconocido");
         }
 
         const data = await res.json();

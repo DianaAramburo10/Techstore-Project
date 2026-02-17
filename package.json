@@ -1,10 +1,11 @@
 {
   "name": "broken-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Este es un proyecto de E-commerce para componentes de hardware que **no funciona correctamente**. Contiene errores intencionales de rendimiento, lógica y seguridad para fines educativos.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,14 @@
   "dependencies": {
     "express": "^5.2.1",
     "cors": "^2.8.5"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DianaAramburo10/Techstore-Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DianaAramburo10/Techstore-Project/issues"
+  },
+  "homepage": "https://github.com/DianaAramburo10/Techstore-Project#readme"
 }
